@@ -1,15 +1,15 @@
 // Function to show the Add Product popup
-document.getElementById('addProductsButton').addEventListener('click', function() {
+document.getElementById('addProductsButton').addEventListener('click', function () {
     document.getElementById('addProductFormContainer').classList.add('active-popup');
 });
 
 // Function to hide the Add Product popup
-document.getElementById('close-addProductForm-button').addEventListener('click', function() {
+document.getElementById('close-addProductForm-button').addEventListener('click', function () {
     document.getElementById('addProductFormContainer').classList.remove('active-popup');
 });
 
 // Function to handle form submission
-document.getElementById('addProductForm').addEventListener('submit', async function(event) {
+document.getElementById('addProductForm').addEventListener('submit', async function (event) {
     event.preventDefault();
 
     // Get form data
@@ -73,16 +73,20 @@ function addProductToTable(id, name, bname, deliveryDate) {
 // Fetching existing products from Google Sheets and populating the table
 async function fetchProducts() {
     try {
-        const response = await fetch('/api/products');
+        const response = await fetch("/api/products");
         const products = await response.json();
 
-        // Loop through each product and add to the table
-        products.forEach(product => {
-            const { id, name, bname, deliveryDate } = product;
+        // Loop through each product (which is an array)
+        products.forEach((product) => {
+            const id = product[0]; // Accessing index 0 for ID
+            const name = product[1]; // Accessing index 1 for name
+            const bname = product[2]; // Accessing index 2 for brand name
+            const deliveryDate = product[3]; // Accessing index 3 for delivery date
+
             addProductToTable(id, name, bname, deliveryDate);
         });
     } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error("Error fetching products:", error);
     }
 }
 
