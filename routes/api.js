@@ -88,6 +88,22 @@ router.get("/products", async (req, res) => {
   }
 });
 
+//Get workstation from google sheet
+router.get("/workstations", async (req, res) => {
+  try {
+    const range = "workstation!A2:D";
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range,
+    });
+    const rows = response.data.values;
+    res.json(rows);
+  } catch (err) {
+    res.status(500).send("Error fetching workstation data from Google Sheets");
+  }
+});
+
+
 // POST to add a new employee to Google Sheets
 router.post("/employees", async (req, res) => {
   const { id, name, department, joiningDate, salary, email } = req.body;
@@ -215,6 +231,25 @@ router.post('/products', async (req, res) => {
       res.status(500).send("Error adding product to Google Sheets");
   }
 });
+
+// POST workstation to Google Sheets
+router.post('/workstations', async (req, res) => {
+  const { id, name, dname, sname } = req.body; // Extract workstation data from the request body
+
+  try {
+    const values = [[id, name, dname, sname]]; // Create an array for the row data
+    await sheets.spreadsheets.values.append({
+      spreadsheetId,
+      range: "workstation!A2:D", // Specify the starting range for appending data
+      valueInputOption: "RAW",
+      resource: { values },
+    });
+    res.status(201).send("Workstation added successfully");
+  } catch (err) {
+    res.status(500).send("Error adding workstation to Google Sheets");
+  }
+});
+
 
 
 module.exports = router;

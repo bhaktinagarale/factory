@@ -1,4 +1,4 @@
-/* Global button styles */
+/* Apply existing .btn styling */
 .btn {
     padding: 10px 20px;
     font-size: 15px;
@@ -15,17 +15,28 @@ main {
     padding: 10px;
 }
 
-/* Customers Table Section styling */
-.our-customer-table-container header {
+/*====================
+Workstation Table Section styling
+======================*/
+.our-workstation-table-container {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.our-workstation-table-container header {
     height: 50px;
     background: var(--bg2);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    border-radius: 5px;
 }
 
-.our-customer-table-container header h1 {
+.our-workstation-table-container header h1 {
     margin: 0;
     color: var(--txt1);
 }
@@ -34,29 +45,33 @@ main {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-bottom: 10px;
 }
 
-.our-customer-table {
+.our-workstation-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    border: 1px solid #ddd;
 }
 
-.our-customer-table,
-.our-customer-table th,
-.our-customer-table td {
-    border: 1px solid black;
+.our-workstation-table th,
+.our-workstation-table td {
+    border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
 
-.our-customer-table th {
+.our-workstation-table th {
     background-color: #f2f2f2;
+    font-weight: 600;
 }
 
-/* Popup Form styling */
+/*====================
+Pop-up Form styling
+======================*/
 .popup {
-    position: absolute;
+    position: fixed;
     top: -150%;
     left: 50%;
     opacity: 0;
@@ -67,8 +82,9 @@ main {
     box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     transition: top 0ms ease-in-out 200ms,
-        opacity 200ms ease-in-out 0ms,
-        transform 200ms ease-in-out 0ms;
+                opacity 200ms ease-in-out 0ms,
+                transform 200ms ease-in-out 0ms;
+    z-index: 1000;
 }
 
 .active-popup {
@@ -76,8 +92,8 @@ main {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
     transition: top 0ms ease-in-out 0ms,
-        opacity 200ms ease-in-out 0ms,
-        transform 200ms ease-in-out 0ms;
+                opacity 200ms ease-in-out 0ms,
+                transform 200ms ease-in-out 0ms;
 }
 
 .popup .close-btn {
@@ -88,7 +104,7 @@ main {
     height: 20px;
     background: var(--bg2);
     display: flex;
-    place-content: center;
+    justify-content: center;
     align-items: center;
     color: red;
     border-radius: 15px;
@@ -96,17 +112,20 @@ main {
 }
 
 .popup header {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .popup h2 {
+    text-align: center;
     color: #222;
-    margin: 10px 0px 20px;
+    margin: 10px 0 20px;
     font-size: 25px;
 }
 
 .popup .form .form-element {
-    margin: 5px 0px;
+    margin: 10px 0;
 }
 
 .popup .form .form-element label {
@@ -124,7 +143,13 @@ main {
     border-radius: 5px;
 }
 
-.saveBtn, .updateCustomerBtn {
+.saveBtn {
     width: 100%;
     height: 40px;
+    font-weight: 600;
+    background-color: var(--bg2);
+    color: var(--txt1);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

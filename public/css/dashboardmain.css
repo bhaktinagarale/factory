@@ -1,53 +1,49 @@
+/* Main styling for vertical sidebar */
+main {
+  display: flex;
+  height: 100%; /* Make sure main takes the full height of its parent */
+  padding: 20px; /* Add padding around the main content */
+}
 
-      /* Main section and tab styling */
-      .tabs-container {
-        margin: 20px auto;
-        width: 80%;
-        max-width: 1200px;
-      }
+.tabs-container {
+  display: flex;
+  flex-direction: column; /* Arrange tabs vertically */
+  width: 220px; /* Width of the sidebar */
+  background-color: #f4f4f4; /* Background color for sidebar */
+  padding: 10px; /* Padding inside the tabs container */
+  border: 1px solid #ddd; /* Border for separation */
+  border-radius: 5px; /* Rounded corners */
+}
 
-      .tabs {
-        display: flex;
-        justify-content: space-around;
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
+.tabs {
+  list-style: none; /* Remove bullet points from the list */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
 
-      .tab-item {
-        list-style: none;
-      }
+.tab-item {
+  margin-bottom: 10px; /* Space between tab items */
+}
 
-      .tab-link {
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: bold;
-        color: #333;
-        padding: 12px 20px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
+.tab-link {
+  display: block; /* Make the link fill the space */
+  padding: 12px 15px; /* Padding for the link */
+  font-size: 16px; /* Font size */
+  font-weight: 500; /* Font weight */
+  color: #333; /* Text color */
+  text-decoration: none; /* Remove underline */
+  background-color: #eaeaea; /* Background color */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s, color 0.3s; /* Transition for hover effect */
+}
 
-      .tab-link:hover {
-        background-color: #0056b3;
-        color: #fff;
-      }
+/* Hover and active state styles */
+.tab-link:hover {
+  background-color: #ddd; /* Lighter background on hover */
+  color: #000; /* Darker text color on hover */
+}
 
-      .tab-link.active {
-        background-color: #007bff;
-        color: #fff;
-      }
-
-      @media (max-width: 768px) {
-        .tabs {
-          flex-direction: column;
-        }
-
-        .tab-link {
-          text-align: center;
-          padding: 15px;
-        }
-      }
-   
- 
+.tab-link.active {
+  background-color: #333; /* Active tab color */
+  color: #fff; /* Text color for active tab */
+}
