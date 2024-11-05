@@ -8,6 +8,8 @@ const fs = require("fs");
 //const { client_email, private_key } = credentials;
 const scopes = ["https://www.googleapis.com/auth/spreadsheets"];
 
+const client_email = process.env.client_email;
+const private_key = process.env.private_key;
 const auth = new google.auth.JWT(client_email, null, private_key, scopes);
 const sheets = google.sheets({ version: "v4", auth });
 
