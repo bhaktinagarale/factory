@@ -8,6 +8,8 @@ const fs = require("fs");
 const scopes = ["https://www.googleapis.com/auth/spreadsheets"];
 
 // Initialize JWT authorization for Google API
+const client_email = process.env.client_email;
+const private_key = process.env.private_key;
 const auth = new google.auth.JWT(client_email, null, private_key, scopes);
 const sheets = google.sheets({ version: "v4", auth });
 
