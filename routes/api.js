@@ -4,8 +4,8 @@ const { google } = require("googleapis");
 const fs = require("fs");
 
 // Load Google Sheets credentials
-const credentials = JSON.parse(fs.readFileSync("credentials/credentials.json"));
-const { client_email, private_key } = credentials;
+//const credentials = JSON.parse(fs.readFileSync("credentials/credentials.json"));
+//const { client_email, private_key } = credentials;
 const scopes = ["https://www.googleapis.com/auth/spreadsheets"];
 
 const auth = new google.auth.JWT(client_email, null, private_key, scopes);
