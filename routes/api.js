@@ -15,6 +15,7 @@ const sheets = google.sheets({ version: "v4", auth });
 
 const spreadsheetId = "1S1YyDtB4MwT7b26w5jN4rjyRvlW0vbAJoKD5D0nRQnI";
 
+
 // GET all employees from the Google Sheet
 router.get("/employees", async (req, res) => {
   try {
@@ -26,7 +27,8 @@ router.get("/employees", async (req, res) => {
     const rows = response.data.values;
     res.json(rows);
   } catch (err) {
-    res.status(500).send("Error fetching employees data from Google Sheets");
+    res.status(500).json({ error: "Error fetching employees" });
+
   }
 });
 
@@ -41,7 +43,8 @@ router.get("/departments", async (req, res) => {
     const rows = response.data.values;
     res.json(rows);
   } catch (err) {
-    res.status(500).send("Error fetching departments data from Google Sheets");
+    res.status(500).json({ error: "Error fetching departments" });
+
   }
 });
 
@@ -56,7 +59,8 @@ router.get("/customers", async (req, res) => {
     const rows = response.data.values;
     res.json(rows);
   } catch (err) {
-    res.status(500).send("Error fetching customers data from Google Sheets");
+    res.status(500).json({ error: "Error fetching customers" });
+
   }
 });
 
@@ -71,7 +75,8 @@ router.get("/suppliers", async (req, res) => {
     const rows = response.data.values;
     res.json(rows);
   } catch (err) {
-    res.status(500).send("Error fetching suppliers data from Google Sheets");
+    res.status(500).json({ error: "Error fetching suppliers" });
+
   }
 });
 
@@ -86,7 +91,8 @@ router.get("/products", async (req, res) => {
     const rows = response.data.values;
     res.json(rows);
   } catch (err) {
-    res.status(500).send("Error fetching products data from Google Sheets");
+    res.status(500).json({ error: "Error fetching products" });
+
   }
 });
 
@@ -101,7 +107,8 @@ router.get("/workstations", async (req, res) => {
     const rows = response.data.values;
     res.json(rows);
   } catch (err) {
-    res.status(500).send("Error fetching workstation data from Google Sheets");
+    res.status(500).json({ error: "Error fetching workstations" });
+
   }
 });
 
