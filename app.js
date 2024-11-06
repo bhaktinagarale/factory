@@ -4,12 +4,14 @@ const fs = require("fs");
 
 // Load Google Sheets credentials
 //const credentials = JSON.parse(fs.readFileSync("credentials/credentials.json"));
-//const { client_email, private_key } = credentials;
+const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
+
+const { client_email, private_key } = credentials;
 const scopes = ["https://www.googleapis.com/auth/spreadsheets"];
 
 // Initialize JWT authorization for Google API
-const client_email = process.env.client_email;
-const private_key = process.env.private_key;
+//const client_email = process.env.client_email;
+//const private_key = process.env.private_key;
 const auth = new google.auth.JWT(client_email, null, private_key, scopes);
 const sheets = google.sheets({ version: "v4", auth });
 
