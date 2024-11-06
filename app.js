@@ -8,6 +8,7 @@ const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
 
 const { client_email, private_key } = credentials;
 const scopes = ["https://www.googleapis.com/auth/spreadsheets"];
+console.log("value of private_key", private_key )
 
 // Initialize JWT authorization for Google API
 //const client_email = process.env.client_email;
