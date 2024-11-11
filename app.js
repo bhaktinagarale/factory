@@ -2,7 +2,7 @@ const express = require("express");
 const { google } = require("googleapis");
 const fs = require("fs");
 
-console.log("welcome to the app")
+
 // Load Google Sheets credentials
 //const credentials = JSON.parse(fs.readFileSync("credentials/credentials.json"));
 const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
