@@ -44,6 +44,7 @@ document.getElementById('addCustomerForm').addEventListener('submit', async func
             // Hide the popup
             document.getElementById('addCustomerFormContainer').classList.remove('active-popup');
         } else {
+            alert(' adding customer details. Please try again.');
             console.error('Error adding customer:', response.statusText);
         }
     } catch (error) {
