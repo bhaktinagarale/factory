@@ -8,23 +8,10 @@ const fs = require("fs");
 //const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
 const { client_email, private_key } = credentials;
 const scopes = ["https://www.googleapis.com/auth/spreadsheets"];
-async function loadCredentials() {
-  try {
-    // Fetch the JSON from the public DigitalOcean Space URL
-    const response = await fetch('https://factorys.blr1.digitaloceanspaces.com/credentials.json');
+const response = await fetch('https://factorys.blr1.digitaloceanspaces.com/credentials.json');
     const credentials = await response.json();
 
-    const auth = new google.auth.GoogleAuth({
-      credentials,
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-    });
-
-    return auth;
-  } catch (error) {
-    console.error("Error loading credentials:", error);
-    throw error;
-  }
-}
+ 
 
 //const client_email = process.env.client_email;
 //const private_key = process.env.private_key;
