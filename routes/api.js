@@ -5,11 +5,29 @@ const fs = require("fs");
 
 // Load Google Sheets credentials
 //const credentials = JSON.parse(fs.readFileSync("credentials/credentials.json"));
-//const { client_email, private_key } = credentials;
+//const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
+const { client_email, private_key } = credentials;
 const scopes = ["https://www.googleapis.com/auth/spreadsheets"];
+async function loadCredentials() {
+  try {
+    // Fetch the JSON from the public DigitalOcean Space URL
+    const response = await fetch('https://factorys.blr1.digitaloceanspaces.com/credentials.json');
+    const credentials = await response.json();
 
-const client_email = process.env.client_email;
-const private_key = process.env.private_key;
+    const auth = new google.auth.GoogleAuth({
+      credentials,
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
+
+    return auth;
+  } catch (error) {
+    console.error("Error loading credentials:", error);
+    throw error;
+  }
+}
+
+//const client_email = process.env.client_email;
+//const private_key = process.env.private_key;
 const auth = new google.auth.JWT(client_email, null, private_key, scopes);
 const sheets = google.sheets({ version: "v4", auth });
 
@@ -59,8 +77,7 @@ router.get("/customers", async (req, res) => {
     const rows = response.data.values;
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: "Error fetching customers" });
-
+    console.error("Google Sheets API Error:", error.message);
   }
 });
 
@@ -255,9 +272,12 @@ router.post('/workstations', async (req, res) => {
     });
     res.status(201).send("Workstation added successfully");
   } catch (err) {
+
     res.status(500).send("Error adding workstation to Google Sheets");
   }
 });
+
+
 
 
 
