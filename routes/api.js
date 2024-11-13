@@ -9,7 +9,7 @@ const fs = require("fs");
 const { client_email, private_key } = credentials;
 const scopes = ["https://www.googleapis.com/auth/spreadsheets"];
 const response = await fetch('https://factorys.blr1.digitaloceanspaces.com/credentials.json');
-//const credentials = await response.json();
+const credentials = await response.json();
 
  
 
