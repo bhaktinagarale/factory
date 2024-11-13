@@ -3,7 +3,7 @@ const router = express.Router();
 const { google } = require("googleapis");
 const fs = require("fs");
 
-// Load Google Sheets credentials
+//now Load Google Sheets credentials
 const credentials = JSON.parse(fs.readFileSync("credentials/credentials.json"));
 //const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
 const { client_email, private_key } = credentials;
