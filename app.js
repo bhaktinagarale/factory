@@ -6,10 +6,10 @@ const fs = require("fs");
 
 // Load Google Sheets credentials
 
-//const credentials = JSON.parse(fs.readFileSync("credentials/credentials.json"));
+const credentials = JSON.parse(fs.readFileSync("credentials/credentials.json"));
 //const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
-const response = await fetch('https://factorys.blr1.digitaloceanspaces.com/credentials.json');
-const credentials = await response.json();
+//const response = await fetch('https://factorys.blr1.digitaloceanspaces.com/credentials.json');
+//const credentials = await response.json();
 
 
 
