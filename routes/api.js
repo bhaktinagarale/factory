@@ -282,7 +282,7 @@ router.post('/workstations', async (req, res) => {
 
 
 
-// POST workstation to Google Sheets
+// POST fabric to Google Sheets
 router.post('/fabricreceived', async (req, res) => {
   const { id, style, supplier, customer, fablot,count,date } = req.body; // Extract workstation data from the request body
 
