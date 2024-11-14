@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XCELLNCE | Fabric Received</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/header_style.css" />
+    <link rel="stylesheet" href="./css/main_style.css" />
+    <link rel="stylesheet" href="./css/footer_style.css" />
+    <link rel="stylesheet" href="./css/fabric_received.css">
+
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="top-navbar">
+            <section class="logo-container">
+                <p class="logo">
+                    <span class="hr">XCELLNCE</span>
+                </p>
+            </section>
+            <section class="nav-links-list-container" id="menuList">
+                <ul class="nav-links-list">
+                    <li class="nav-link-item">
+                        <a href="./index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-link-item">
+                        <a href="./about.html" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-link-item">
+                        <a href="./contact.html" class="nav-link">Contact Us</a>
+                    </li>
+                    <li class="nav-link-item">
+                        <a href="./dashboard.html" class="nav-link active">Login</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="menu-icon-container">
+                <i class="fa-solid fa-bars menu-icon" onclick="toggleMenu()"></i>
+            </section>
+        </nav>
+    </header>
+
+    <main>
+        <section class="our-fabric-table-container">
+            <header>
+                <h1>Fabric Received</h1>
+            </header>
+            <div class="buttons-container">
+                <div class="addFabricButtonContainer">
+                    <button class="btn" id="addFabricButton">
+                        Add
+                    </button>
+                </div>
+            </div>
+
+            <table id="fabricTable" class="our-fabric-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Style</th>
+                        <th>Supplier</th>
+                        <th>Customer</th>
+                        <th>FabLot</th>
+                        <th>Count</th>
+                         <th>Date</th>                     
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Customers rows will be inserted here via JavaScript -->
+                </tbody>
+
+            </table>
+        </section>
+
+        <!-- Form to add customers -->
+        <section class="popup" id="addFabricFormContainer">
+            <header>
+                <h2>Add Customers</h2>
+            </header>
+            <div class="close-addFabricForm-button close-btn" id="close-addFabricForm-button">
+                &times;
+            </div>
+            <form id="addFabricForm" class="form">
+                <div class="form-element">
+                    <label for="id">ID</label>
+                    <input type="text" id="id" name="id" required class="input" />
+                </div>
+                <div class="form-element">
+                    <label for="style">Style</label>
+                    <select
+                      id="style"
+                      name="style"
+                      class="input styleOptionsContainer"
+                      required
+                    >
+                      <option value="" disabled selected>Select Style</option>
+                      <!-- Other options will be inserted here via JavaScript -->
+                    </select>
+                  </div>
+
+
+                  <div class="form-element">
+                    <label for="supplier">Supplier</label>
+                    <select
+                      id="supplier"
+                      name="supplier"
+                      class="input supplierOptionsContainer"
+                      required
+                    >
+                      <option value="" disabled selected>Select Supplier</option>
+                      <!-- Other options will be inserted here via JavaScript -->
+                    </select>
+                  </div>
+
+                   
+                  <div class="form-element">
+                    <label for="Customer">Customer</label>
+                    <select
+                      id="Customer"
+                      name="Customer"
+                      class="input customerOptionsContainer"
+                      required
+                    >
+                      <option value="" disabled selected>Select Customer</option>
+                      <!-- Other options will be inserted here via JavaScript -->
+                    </select>
+                  </div>
+
+                  <div class="form-element">
+                    <label for="fablot">FabLot</label>
+                    <input type="text" id="fablot" name="fablot"  pattern="^[a-zA-Z0-9]+$" required class="input" />
+                </div>
+
+
+                <div class="form-element">
+                    <label for="count">Count</label>
+                    <input type="text" id="count" name="count" required class="input" />
+                </div>
+
+                <div class="form-element">
+                    <label for="date"> Date: </label>
+                    <input type="date" id="date" name="date" required class="input" />
+                </div>
+                <div class="form-element">
+                    <button type="submit" class="btn saveBtn">Save</button>
+                </div>
+            </form>
+
+    
+
+    </main>
+
+    <footer id="footer">
+        <p>&copy; 2024 XCELLNCE</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/b0cda2e9f1.js" crossorigin="anonymous"></script>
+    <script src="./js/toggle_menu.js"></script>
+    <script src="./js/fabric_received.js"></script>
+
+
+</body>
+
+</html>
