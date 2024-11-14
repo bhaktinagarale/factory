@@ -84,7 +84,7 @@ router.get("/suppliers", async (req, res) => {
   }
 });
 
-//GET products from google sheet
+//GET products/style from google sheet
 router.get("/products", async (req, res) => {
   try {
     const range = "Sheet5!A2:D";
@@ -112,6 +112,22 @@ router.get("/workstations", async (req, res) => {
     res.json(rows);
   } catch (err) {
     res.status(500).json({ error: "Error fetching workstations" });
+
+  }
+});
+
+//Get fabric from google sheet
+router.get("/fabricreceived", async (req, res) => {
+  try {
+    const range = "fabricreceived!A2:G";
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range,
+    });
+    const rows = response.data.values;
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ error: "Error fetching fabric" });
 
   }
 });
@@ -261,6 +277,27 @@ router.post('/workstations', async (req, res) => {
   } catch (err) {
 
     res.status(500).send("Error adding workstation to Google Sheets");
+  }
+});
+
+
+
+// POST workstation to Google Sheets
+router.post('/fabricreceived', async (req, res) => {
+  const { id, style, supplier, customer, fablot,count,date } = req.body; // Extract workstation data from the request body
+
+  try {
+    const values = [[id, style, supplier, customer, fablot,count,date]]; // Create an array for the row data
+    await sheets.spreadsheets.values.append({
+      spreadsheetId,
+      range: "fabricreceived!A2:G", // Specify the starting range for appending data
+      valueInputOption: "RAW",
+      resource: { values },
+    });
+    res.status(201).send("fabric added successfully");
+  } catch (err) {
+
+    res.status(500).send("Error adding fabric to Google Sheets");
   }
 });
 
