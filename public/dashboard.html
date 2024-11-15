@@ -10,6 +10,86 @@
     <link rel="stylesheet" href="./css/main_style.css" />
     <link rel="stylesheet" href="./css/footer_style.css" />
   <link rel="stylesheet" href="./css/dashboardmain.css">
+
+  <style>
+    /* Dropdown Container */
+    .tab-item {
+      position: relative; /* Required for positioning the dropdown menu */
+    }
+  
+    /* Admin Link Styling */
+    .tab-link {
+      text-decoration: none;
+      color: #333;
+      padding: 10px 15px;
+      display: flex; /* Flexbox for aligning text and arrow */
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .tab-link:hover {
+      background-color: #eaeaea;
+    }
+  
+    /* Arrow Styling */
+    .arrow {
+      display: inline-block;
+      margin-left: 5px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid #333; /* Triangle pointing downward */
+    }
+  
+    /* Dropdown Menu Styling */
+    .dropdown-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: none; /* Initially hidden */
+      position: absolute; /* Position relative to parent */
+      top: 100%; /* Places menu directly below the tab */
+      left: 0;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      min-width: 150px; /* Ensure dropdown has consistent width */
+    }
+  
+    .dropdown-menu li {
+      margin: 0;
+    }
+  
+    .dropdown-menu a {
+      text-decoration: none;
+      color: #333;
+      padding: 10px 15px;
+      display: block;
+      transition: background-color 0.3s ease;
+    }
+  
+    .dropdown-menu a:hover {
+      background-color: #f0f0f0; /* Hover effect for dropdown links */
+    }
+  
+    /* Show dropdown on hover */
+    .tab-item.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+  
+    /* Arrow Rotation on Hover */
+    .tab-item.dropdown:hover .arrow {
+      border-top: none;
+      border-bottom: 6px solid #333; /* Triangle pointing upward */
+    }
+  </style>
    
   </head>
   <body>
@@ -48,20 +128,22 @@
           <li class="tab-item">
             <a href="./fabric_received.html" class="tab-link">Fabric Received</a>
           </li>
-          <li class="tab-item">
-            <a href="./customers.html" class="tab-link">Customers</a>
-          </li>
-          <li class="tab-item">
-            <a href="./suppliers.html" class="tab-link">Suppliers</a>
-          </li>
+         
           <li class="tab-item">
             <a href="./products.html" class="tab-link">Products/Styles</a>
           </li>
-          <li class="tab-item">
-            <a href="./our_employees.html" class="tab-link">Employees</a>
-          </li>
-          <li class="tab-item" >
-            <a href="./workstation.html" class="tab-link"> Work Station</a>
+          
+          <li class="tab-item dropdown">
+            <a href="#" class="tab-link">
+              Admin
+              <span class="arrow"></span> <!-- Arrow element -->
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./customers.html">Customers</a></li>
+              <li><a href="./suppliers.html">Suppliers</a></li>
+              <li><a href="./our_employees.html">Employees</a></li>
+              <li><a href="./workstation.html">Workstations</a></li>
+            </ul>
           </li>
           <li class="tab-item">
             <a href="./analytics.html" class="tab-link">Analytics</a>
