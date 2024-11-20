@@ -12,82 +12,85 @@
   <link rel="stylesheet" href="./css/dashboardmain.css">
 
   <style>
-    /* Dropdown Container */
-    .tab-item {
-      position: relative; /* Required for positioning the dropdown menu */
-    }
-  
-    /* Admin Link Styling */
-    .tab-link {
-      text-decoration: none;
-      color: #333;
-      padding: 10px 15px;
-      display: flex; /* Flexbox for aligning text and arrow */
-      justify-content: space-between;
-      align-items: center;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-  
-    .tab-link:hover {
-      background-color: #eaeaea;
-    }
-  
-    /* Arrow Styling */
-    .arrow {
-      display: inline-block;
-      margin-left: 5px;
-      width: 0;
-      height: 0;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-top: 6px solid #333; /* Triangle pointing downward */
-    }
-  
-    /* Dropdown Menu Styling */
-    .dropdown-menu {
-      list-style: none;
+    /* General Reset */
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      display: none; /* Initially hidden */
-      position: absolute; /* Position relative to parent */
-      top: 100%; /* Places menu directly below the tab */
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+    a:hover {
+      color: #007BFF;
+    }
+
+    /* Navigation Styles */
+    .tab-item {
+      position: relative;
+    }
+    .tab-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .tab-link:hover {
+      background-color: #e9ecef;
+    }
+    .arrow {
+      border: solid #333;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 5px;
+      margin-left: 10px;
+      transform: rotate(45deg);
+      transition: transform 0.3s ease;
+    }
+    .tab-item:hover .arrow {
+      transform: rotate(225deg); /* Rotate the arrow when dropdown is visible */
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
       left: 0;
       background-color: #fff;
       border: 1px solid #ddd;
-      border-radius: 5px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: none;
+      min-width: 200px;
       z-index: 1000;
-      min-width: 150px; /* Ensure dropdown has consistent width */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-  
+    .tab-item:hover .dropdown-menu {
+      display: block; /* Show dropdown on hover */
+    }
     .dropdown-menu li {
-      margin: 0;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
     }
-  
-    .dropdown-menu a {
-      text-decoration: none;
+    .dropdown-menu li:last-child {
+      border-bottom: none;
+    }
+    .dropdown-menu li a {
       color: #333;
-      padding: 10px 15px;
       display: block;
+      width: 100%;
       transition: background-color 0.3s ease;
     }
-  
-    .dropdown-menu a:hover {
-      background-color: #f0f0f0; /* Hover effect for dropdown links */
-    }
-  
-    /* Show dropdown on hover */
-    .tab-item.dropdown:hover .dropdown-menu {
-      display: block;
-    }
-  
-    /* Arrow Rotation on Hover */
-    .tab-item.dropdown:hover .arrow {
-      border-top: none;
-      border-bottom: 6px solid #333; /* Triangle pointing upward */
+    .dropdown-menu li a:hover {
+      background-color: #f1f1f1;
     }
   </style>
    
@@ -125,14 +128,27 @@
     <main>
       <section class="tabs-container">
         <ul class="tabs">
+           <li class="tab-item">
+            <a href="./fabric_received.html" class="tab-link">Planning</a>
+          </li>
+
           <li class="tab-item">
-            <a href="./fabric_received.html" class="tab-link">Fabric Received</a>
+             <a href="#" class="tab-link">
+              Fabric Management
+              <span class="arrow"></span> <!-- Arrow element -->
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./fabric_received.html">Fabric Received</a></li>
+              <li><a href="">Fabric Quality Review</a></li>
+
+            </ul>
+          </li>
+
+          <li class="tab-item">
+            <a href="./products.html" class="tab-link">Cutting Dpt Mgmt</a>
           </li>
          
-          <li class="tab-item">
-            <a href="./products.html" class="tab-link">Products/Styles</a>
-          </li>
-          
+                   
           <li class="tab-item dropdown">
             <a href="#" class="tab-link">
               Admin
@@ -147,6 +163,9 @@
           </li>
           <li class="tab-item">
             <a href="./analytics.html" class="tab-link">Analytics</a>
+          </li>
+          <li class="tab-item">
+            <a href="./products.html" class="tab-link">Products/Styles</a>
           </li>
         </ul>
       </section>
