@@ -1,0 +1,68 @@
+/* Styling the Pre-Production Tracking Section */
+.our-pptracking-table-container {
+    padding: 10px;
+}
+
+.our-pptracking-table-container header {
+    height: 50px;
+    background: var(--bg2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.our-pptracking-table-container header h1 {
+    margin: 0;
+    color: var(--txt1);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.addPptrackingButtonContainer .btn {
+    background: var(--bg2);
+    color: var(--txt1);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid var(--bg2);
+}
+
+.addPptrackingButtonContainer .btn:hover {
+    background: var(--txt1);
+    color: var(--bg2);
+}
+
+/* Table Styling */
+.our-pptacking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.our-pptacking-table th,
+.our-pptacking-table td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+.our-pptacking-table th {
+    background-color: #f2f2f2;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Popup Form Styling */
+.popup {
+    position: absolute;
+    top: -150%;
+}

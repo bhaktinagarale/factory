@@ -132,6 +132,68 @@ router.get("/fabricreceived", async (req, res) => {
   }
 });
 
+//Get PPTracking from google sheet
+router.get("/pptracking", async (req, res) => {
+  try {
+    const range = "pptracking!A2:N";
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range,
+    });
+    const rows = response.data.values;
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ error: "Error PPTracking" });
+
+  }
+});
+
+// // //Get milestone from google sheet
+// router.get("/milestone", async (req, res) => {
+//    try {
+//      const range = "milestone!A2";
+//      const response = await sheets.spreadsheets.values.get({
+//        spreadsheetId,
+//        range,
+//      });
+//      const rows = response.data.values;
+//      res.json(rows);
+//    } catch (err) {
+//      res.status(500).json({ error: "Error milestone" });
+
+//    }
+//  });
+
+//Get orders from google sheet
+router.get("/orders", async (req, res) => {
+  try {
+    const range = "orders!A2:I";
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range,
+    });
+    const rows = response.data.values;
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ error: "Error orders" });
+
+  }
+});
+
+
+// //Get ordertracking from google sheet
+// router.get("/ordertracking", async (req, res) => {
+//     try {
+//   const range = "ordertracking!A2:B";
+//     const response = await sheets.spreadsheets.values.get({
+//        spreadsheetId,
+//     range,
+//      });
+//  const rows = response.data.values;
+//    res.json(rows);
+//   } catch (err) {   res.status(500).json({ error: "Error ordertracking" });
+//   }
+//  });
 
 // POST to add a new employee to Google Sheets
 router.post("/employees", async (req, res) => {
@@ -301,7 +363,29 @@ router.post('/fabricreceived', async (req, res) => {
   }
 });
 
+// POST order to Google Sheets
+router.post('/orders', async (req, res) => {
+  const { Season, Style, OrderNo, Customer, OrderQty, ExFacDate, Type, Status, Owner } = req.body; // Extract order data
 
+  try {
+      // Prepare the row data
+      const values = [[Season, Style, OrderNo, Customer, OrderQty, ExFacDate, Type, Status, Owner]];
+
+      // Append data to the Google Sheet
+      await sheets.spreadsheets.values.append({
+          spreadsheetId,
+          range: "orders!A2:I", // Specify the range where data should be appended
+          valueInputOption: "RAW",
+          resource: { values },
+      });
+
+      // Respond with success
+      res.status(201).send("Order added successfully");
+  } catch (err) {
+      console.error("Error adding order to Google Sheets:", err);
+      res.status(500).send("Error adding order to Google Sheets");
+  }
+});
 
 
 

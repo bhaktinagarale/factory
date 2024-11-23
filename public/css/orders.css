@@ -1,0 +1,168 @@
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+
+    /* Main layout */
+    main {
+        padding: 20px;
+    }
+
+    /* Header Styles */
+    h1 {
+        font-size: 24px;
+        color: #2c3e50;
+        text-align: center;
+    }
+
+    /* Table Container */
+    .our-orders-table-container {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* Button Styles */
+    .btn {
+        background-color: #3498db;
+        color: #ffffff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+        font-size: 14px;
+    }
+
+    .btn:hover {
+        background-color: #2980b9;
+    }
+
+    .buttons-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+    }
+
+    /* Table Styles */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f7f7f7;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    /* Popup Form */
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 400px;
+        z-index: 1000;
+        display: none;
+    }
+
+    .popup.active-popup {
+        display: block;
+    }
+
+    .popup header h2 {
+        text-align: center;
+        font-size: 16px;
+        color: #2c3e50;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 18px;
+        color: #888;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        color: #333;
+    }
+
+    /* Form Styles */
+    .form {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+    .form-element {
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 3px;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 6px;
+        font-size: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .saveBtn {
+        background-color: #27ae60;
+        color: #ffffff;
+        border: none;
+        padding: 8px;
+        font-size: 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+        width: 100%;
+    }
+
+    .saveBtn:hover {
+        background-color: #1e8449;
+    }
+
+    @media (max-width: 500px) {
+        .form {
+            font-size: 10px;
+        }
+
+        input, select {
+            padding: 5px;
+        }
+
+        .saveBtn {
+            padding: 7px;
+            font-size: 10px;
+        }
+    }

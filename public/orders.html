@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking</title>
+    <link rel="stylesheet" href="./css/orders.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+<body>
+
+    <main>
+        <section class="our-orders-table-container">
+            <header>
+                <h1>Orders</h1>
+            </header>
+            <div class="buttons-container">
+                <div class="addOrdersButtonContainer">
+                    <button class="btn" id="addOrdersButton">Add</button>
+                </div>
+            </div>
+
+            <table id="ordertrsTable" class="our-orders-table">
+                <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>Style</th>
+                        <th>OrderNo</th>
+                        <th>Customer</th>
+                        <th>Order Qty</th>
+                        <th>ExFacDate</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Owner</th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Customer rows will be inserted here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Form Popup -->
+        <section class="popup" id="addordertrsFormContainer">
+            <header>
+                <h2>Add</h2>
+            </header>
+            <div class="close-btn" id="close-addOrdersForm-button">&times;</div>
+            <form id="addOrdertrsForm" class="form">
+                <div class="form-element">
+                    <label for="Season">Season</label>
+                    <input type="text" id="Season" name="Season" required />
+                </div>
+                <div class="form-element">
+                    <label for="Style">Style</label>
+                    <input type="text" id="Style" name="Style" required />
+                </div>
+                <div class="form-element">
+                    <label for="OrderNo">OrderNo</label>
+                    <input type="text" id="OrderNo" name="OrderNo" required />
+                </div>
+                <div class="form-element">
+                    <label for="Customer">Customer</label>
+                    <input type="text" id="Customer" name="Customer" required />
+                </div>
+                <div class="form-element">
+                    <label for="OrderQty">OrderQty</label>
+                    <input type="text" id="OrderQty" name="OrderQty" required />
+                </div>
+                <div class="form-element">
+                    <label for="ExFacDate">ExFacDate</label>
+                    <input type="date" id="ExFacDate" name="ExFacDate" required />
+                </div>
+                <div class="form-element">
+                    <label for="Type">Type</label>
+                    <select id="Type" name="Type" required>
+                        <option value="" disabled selected>Select a type</option>
+                        <option value="wash">Wash</option>
+                        <option value="non-wash">Non-Wash</option>
+                    </select>
+                </div>
+                <div class="form-element">
+                    <label for="Status">Status</label>
+                    <input type="text" id="Status" name="Status" required />
+                </div>
+                <div class="form-element">
+                    <label for="Owner">Owner</label>
+                    <input type="email" id="Owner" name="Owner" required />
+                </div>
+                <div class="form-element">
+                    <button type="submit" class="btn saveBtn">Save</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="https://kit.fontawesome.com/b0cda2e9f1.js" crossorigin="anonymous"></script>
+    <script src="./js/toggle_menu.js"></script>
+    <script src="./js/orders.js"></script>
+    
+  
+</body>
+</html>
